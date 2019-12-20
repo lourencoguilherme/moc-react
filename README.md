@@ -64,3 +64,51 @@ touch servico >> src/service/CarService.js
 npm i axios --save
 
 ```
+
+## Para testar o serviço.
+
+Obs: o resultado esperado é a palavra teste no console
+
+Adicione as seguintes linhas de código a classe `CarService.js`
+
+```
+export class CarService {
+
+    state = {
+    }
+    getTeste = (async () => { 
+        console.log('teste')        
+    })
+}
+```
+
+Adicione as seguintes linhas de código a classe `App.js`
+
+```
+import React, { Component } from 'react';
+import { CarService } from './service/CarService';
+
+export default class App extends Component {
+  
+  constructor() {
+    super();
+    this.carservice = new CarService();
+  }
+
+  componentDidMount() {
+    this.carservice.getTeste()
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+         
+        </header>
+      </div>
+    )
+  }
+}
+```
+
+
